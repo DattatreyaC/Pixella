@@ -121,19 +121,19 @@ function Post({ post }) {
                     />
                 )}
             </div>
-            <div className="w-[90%] flex items-center justify-center border-b">
+            <div className="w-full flex items-center justify-center border-b">
                 {post.mediaType == "image" && (
-                    <div className="w-[90%]    flex  items-center justify-center   ">
+                    <div className="w-full flex items-center justify-center">
                         <img
                             src={post.media}
                             alt=""
-                            className="w-[80%] rounded-2xl  object-cover"
+                            className="w-[80%] object-cover"
                         />
                     </div>
                 )}
 
                 {post.mediaType == "video" && (
-                    <div className="w-[80%]    flex flex-col items-center justify-center   ">
+                    <div className="w-full flex flex-col items-center justify-center ">
                         <VideoPlayer media={post.media} />
                     </div>
                 )}
