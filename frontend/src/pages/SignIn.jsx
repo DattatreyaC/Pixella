@@ -39,12 +39,12 @@ function SignIn() {
     };
 
     return (
-        <div className="w-full h-screen bg-gradient-to-b from-black to-gray-900 flex flex-col justify-center items-center">
-            <div className="w-[90%] lg:max-w-[60%]  h-[600px] bg-white rounded-2xl flex justify-center items-center overflow-hidden border-2 border-[#1a1f23]">
-                <div className="w-full lg:w-[50%] h-full bg-white flex flex-col items-center justify-center p-[10px] gap-[20px]">
+        <div className="w-full h-screen bg-gradient-to-b from-black to-[#172900] flex flex-col justify-center items-center">
+            <div className="w-[90%] lg:max-w-[60%]  h-[600px] bg-black/50 rounded-sm flex justify-center items-center overflow-hidden border-2 border-white/20">
+                <div className="w-full lg:w-[50%] h-full bg-black flex flex-col items-center justify-center p-[10px] gap-[20px]">
                     <div className="flex gap-[10px] items-center text-[20px] font-semibold mt-[40px]">
-                        <span>Sign In to </span>
-                        <h1 className="text-white font-splash text-5xl">
+                        <span className="text-white">Sign In to </span>
+                        <h1 className="bg-gradient-to-r from-lime-400 to-lime-200 text-transparent bg-clip-text font-splash text-5xl">
                             Pixella
                         </h1>
                     </div>
@@ -55,7 +55,7 @@ function SignIn() {
                             setInputClicked({ ...inputClicked, userName: true })
                         }
                     >
-                        <label
+                        {/* <label
                             htmlFor="userName"
                             className={`text-gray-700 absolute left-[20px] p-[5px] bg-white text-[15px] ${
                                 inputClicked.userName ? "top-[-15px]" : ""
@@ -63,11 +63,12 @@ function SignIn() {
                         >
                             {" "}
                             Enter Username
-                        </label>
+                        </label> */}
                         <input
                             type="text"
                             id="userName"
-                            className="w-[100%] h-[100%] rounded-2xl px-[20px] outline-none border-0"
+                            placeholder="Username"
+                            className="w-[100%] h-[100%] rounded-sm px-[20px] outline-none border-0 bg-lime-400/80 placeholder:text-800"
                             required
                             onChange={(e) => setUserName(e.target.value)}
                             value={userName}
@@ -80,7 +81,7 @@ function SignIn() {
                             setInputClicked({ ...inputClicked, password: true })
                         }
                     >
-                        <label
+                        {/* <label
                             htmlFor="password"
                             className={`text-gray-700 absolute left-[20px] p-[5px] bg-white text-[15px] ${
                                 inputClicked.password ? "top-[-15px]" : ""
@@ -88,11 +89,12 @@ function SignIn() {
                         >
                             {" "}
                             Enter password
-                        </label>
+                        </label> */}
                         <input
                             type={showPassword ? "text" : "password"}
                             id="password"
-                            className="w-[100%] h-[100%] rounded-2xl px-[20px] outline-none border-0"
+                            placeholder="Password"
+                            className="w-[100%] h-[100%] rounded-sm px-[20px] outline-none border-0 bg-lime-400/80"
                             required
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
@@ -110,7 +112,7 @@ function SignIn() {
                         )}
                     </div>
                     <div
-                        className="w-[90%] px-[20px] cursor-pointer"
+                        className="w-[90%] px-[20px] cursor-pointer text-lime-400 underline"
                         onClick={() => navigate("/forgot-password")}
                     >
                         Forgot Password
@@ -119,7 +121,7 @@ function SignIn() {
                     {err && <p className="text-red-500">{err}</p>}
 
                     <button
-                        className="w-[70%] px-[20px] py-[10px] bg-black text-white font-semibold h-[50px] cursor-pointer rounded-2xl mt-[30px]"
+                        className="w-[70%] px-[20px] py-[10px] bg-lime-500 hover:bg-lime-600 transition-colors duration-300 text-black font-semibold h-[50px] cursor-pointer rounded-2xl mt-[30px]"
                         onClick={handleSignIn}
                         disabled={loading}
                     >
@@ -130,19 +132,19 @@ function SignIn() {
                         )}
                     </button>
                     <p
-                        className="cursor-pointer text-gray-800"
+                        className="cursor-pointer text-white"
                         onClick={() => navigate("/signup")}
                     >
-                        Want To Create A New Account ?{" "}
-                        <span className="border-b-2 border-b-black pb-[3px] text-black">
+                        Dont have an account ?{" "}
+                        <span className="border-b-2 border-b-black pb-[3px] text-lime-400 underline">
                             Sign Up
                         </span>
                     </p>
                 </div>
-                <div className="md:w-[50%] h-full hidden lg:flex justify-center items-center bg-[#000000] flex-col gap-[10px] text-white text-[16px] font-semibold rounded-l-[30px] shadow-2xl shadow-black">
+                {/* <div className="md:w-[50%] h-full hidden lg:flex justify-center items-center bg-[#000000] flex-col gap-[10px] text-white text-[16px] font-semibold rounded-l-[30px] shadow-2xl shadow-black">
                     <h1 className="text-white font-splash text-5xl">Pixella</h1>
                     <p>Not Just A Platform , It's A VYBE</p>
-                </div>
+                </div> */}
             </div>
         </div>
     );

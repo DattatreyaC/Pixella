@@ -30,7 +30,9 @@ function LeftHome() {
             }`}
         >
             <div className="w-full h-[100px] flex items-center justify-between p-[20px]">
-                <h1 className="text-white font-splash text-5xl">Pixella</h1>
+                <h1 className="bg-gradient-to-r from-lime-400 to-lime-200 text-transparent bg-clip-text font-splash text-5xl">
+                    Pixella
+                </h1>
                 <div
                     className="relative z-[100]"
                     onClick={() => setShowNotification((prev) => !prev)}

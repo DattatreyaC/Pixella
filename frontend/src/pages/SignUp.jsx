@@ -44,12 +44,12 @@ function SignUp() {
     };
 
     return (
-        <div className="w-full h-screen bg-gradient-to-b from-black to-gray-900 flex flex-col justify-center items-center">
-            <div className="w-[90%] lg:max-w-[60%]  h-[600px] bg-white rounded-2xl flex justify-center items-center overflow-hidden border-2 border-[#1a1f23]">
-                <div className="w-full lg:w-[50%] h-full bg-white flex flex-col items-center p-[10px] gap-[20px]">
-                    <div className="flex gap-[10px] items-center text-[20px] font-semibold mt-[40px]">
+        <div className="w-full h-screen bg-gradient-to-b from-black to-[#172900] flex flex-col justify-center items-center">
+            <div className="w-[90%] lg:max-w-[60%]  h-[600px] bg-black rounded-sm flex justify-center items-center overflow-hidden border-2 border-white/20">
+                <div className="w-full lg:w-[50%] h-full bg-black flex flex-col items-center p-[10px] gap-[20px]">
+                    <div className="flex gap-[10px] items-center text-[20px] font-semibold mt-[40px] text-white">
                         <span>Sign Up to </span>
-                        <h1 className="text-white font-splash text-5xl">
+                        <h1 className="bg-gradient-to-r from-lime-400 to-lime-200 text-transparent bg-clip-text font-splash text-5xl">
                             Pixella
                         </h1>
                     </div>
@@ -60,7 +60,7 @@ function SignUp() {
                             setInputClicked({ ...inputClicked, name: true })
                         }
                     >
-                        <label
+                        {/* <label
                             htmlFor="name"
                             className={`text-gray-700 absolute left-[20px] p-[5px] bg-white text-[15px] ${
                                 inputClicked.name ? "top-[-15px]" : ""
@@ -68,11 +68,12 @@ function SignUp() {
                         >
                             {" "}
                             Enter Your Name
-                        </label>
+                        </label> */}
                         <input
                             type="text"
                             id="name"
-                            className="w-[100%] h-[100%] rounded-2xl px-[20px] outline-none border-0"
+                            placeholder="Full Name"
+                            className="w-[100%] h-[100%] rounded-sm px-[20px] outline-none border-0 bg-lime-400/80 placeholder:text-800"
                             required
                             onChange={(e) => setName(e.target.value)}
                             value={name}
@@ -84,7 +85,7 @@ function SignUp() {
                             setInputClicked({ ...inputClicked, userName: true })
                         }
                     >
-                        <label
+                        {/* <label
                             htmlFor="userName"
                             className={`text-gray-700 absolute left-[20px] p-[5px] bg-white text-[15px] ${
                                 inputClicked.userName ? "top-[-15px]" : ""
@@ -92,11 +93,12 @@ function SignUp() {
                         >
                             {" "}
                             Enter Username
-                        </label>
+                        </label> */}
                         <input
                             type="text"
                             id="userName"
-                            className="w-[100%] h-[100%] rounded-2xl px-[20px] outline-none border-0"
+                            placeholder="Username"
+                            className="w-[100%] h-[100%] rounded-sm px-[20px] outline-none border-0 bg-lime-400/80 placeholder:text-800"
                             required
                             onChange={(e) => setUserName(e.target.value)}
                             value={userName}
@@ -108,7 +110,7 @@ function SignUp() {
                             setInputClicked({ ...inputClicked, email: true })
                         }
                     >
-                        <label
+                        {/* <label
                             htmlFor="email"
                             className={`text-gray-700 absolute left-[20px] p-[5px] bg-white text-[15px] ${
                                 inputClicked.email ? "top-[-15px]" : ""
@@ -116,11 +118,12 @@ function SignUp() {
                         >
                             {" "}
                             Enter Email
-                        </label>
+                        </label> */}
                         <input
                             type="email"
                             id="email"
-                            className="w-[100%] h-[100%] rounded-2xl px-[20px] outline-none border-0"
+                            placeholder="Email"
+                            className="w-[100%] h-[100%] rounded-sm px-[20px] outline-none border-0 bg-lime-400/80 placeholder:text-800"
                             required
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
@@ -132,7 +135,7 @@ function SignUp() {
                             setInputClicked({ ...inputClicked, password: true })
                         }
                     >
-                        <label
+                        {/* <label
                             htmlFor="password"
                             className={`text-gray-700 absolute left-[20px] p-[5px] bg-white text-[15px] ${
                                 inputClicked.password ? "top-[-15px]" : ""
@@ -140,11 +143,12 @@ function SignUp() {
                         >
                             {" "}
                             Enter password
-                        </label>
+                        </label> */}
                         <input
                             type={showPassword ? "text" : "password"}
                             id="password"
-                            className="w-[100%] h-[100%] rounded-2xl px-[20px] outline-none border-0"
+                            placeholder="Password"
+                            className="w-[100%] h-[100%] rounded-sm px-[20px] outline-none border-0 bg-lime-400/80 placeholder:text-800"
                             required
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
@@ -164,7 +168,7 @@ function SignUp() {
                     {err && <p className="text-red-500">{err}</p>}
 
                     <button
-                        className="w-[70%] px-[20px] py-[10px] bg-black text-white font-semibold h-[50px] cursor-pointer rounded-2xl mt-[30px]"
+                        className="w-[70%] px-[20px] py-[10px] bg-lime-500 hover:bg-lime-600 transition-colors duration-300 text-black font-semibold h-[50px] cursor-pointer rounded-2xl mt-[30px]"
                         onClick={handleSignUp}
                         disabled={loading}
                     >
@@ -175,19 +179,19 @@ function SignUp() {
                         )}
                     </button>
                     <p
-                        className="cursor-pointer text-gray-800"
+                        className="cursor-pointer text-white"
                         onClick={() => navigate("/signin")}
                     >
                         Already Have An Account ?{" "}
-                        <span className="border-b-2 border-b-black pb-[3px] text-black">
+                        <span className="border-b-2 border-b-black pb-[3px] text-lime-400 underline">
                             Sign In
                         </span>
                     </p>
                 </div>
-                <div className="md:w-[50%] h-full hidden lg:flex justify-center items-center bg-[#000000] flex-col gap-[10px] text-white text-[16px] font-semibold rounded-l-[30px] shadow-2xl shadow-black">
+                {/* <div className="md:w-[50%] h-full hidden lg:flex justify-center items-center bg-[#000000] flex-col gap-[10px] text-white text-[16px] font-semibold rounded-l-[30px] shadow-2xl shadow-black">
                     <img src={logo1} alt="" className="w-[40%]" />
                     <p>Not Just A Platform , It's A VYBE</p>
-                </div>
+                </div> */}
             </div>
         </div>
     );

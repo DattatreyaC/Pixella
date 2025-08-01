@@ -14,7 +14,9 @@ function Feed() {
     return (
         <div className="lg:w-[50%] w-full bg-black min-h-[100vh] lg:h-[100vh] relative lg:overflow-y-auto ">
             <div className="w-full h-[100px] flex items-center justify-between p-[20px] lg:hidden">
-                <h1 className="text-white font-splash text-5xl">Pixella</h1>
+                <h1 className="bg-gradient-to-r from-lime-400 to-lime-200 text-transparent bg-clip-text font-splash text-5xl">
+                    Pixella
+                </h1>
                 <div className="flex items-center gap-[10px]">
                     <div
                         className="relative"
