@@ -11,7 +11,7 @@ function Nav() {
     const navigate = useNavigate();
     const { userData } = useSelector((state) => state.user);
     return (
-        <div className="w-[90%] lg:w-[40%] h-[80px] bg-lime-500/95 [backdrop-filter:blur(10px)] flex justify-around items-center fixed bottom-[20px] rounded-sm shadow-2xl shadow-[#000000] z-[100]">
+        <div className="w-[100%] lg:w-[50%] h-[80px] bg-lime-500/95 [backdrop-filter:blur(10px)] flex justify-around items-center fixed bottom-[0px] shadow-2xl shadow-[#000000] z-[100] border-t-2 border-black">
             <div onClick={() => navigate("/")}>
                 <GoHomeFill className="text-black hover:text-black/70 cursor-pointer w-[25px] h-[25px]" />
             </div>
