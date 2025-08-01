@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../assets/logo.png";
 import { FaRegHeart } from "react-icons/fa6";
 import StoryDp from "./StoryDp";
 import Nav from "./Nav";
@@ -15,7 +14,7 @@ function Feed() {
     return (
         <div className="lg:w-[50%] w-full bg-black min-h-[100vh] lg:h-[100vh] relative lg:overflow-y-auto ">
             <div className="w-full h-[100px] flex items-center justify-between p-[20px] lg:hidden">
-                <img src={logo} alt="" className="w-[80px]" />
+                <h1 className="text-white font-splash text-5xl">Pixella</h1>
                 <div className="flex items-center gap-[10px]">
                     <div
                         className="relative"
@@ -26,7 +25,7 @@ function Feed() {
                             notificationData.some(
                                 (noti) => noti.isRead === false,
                             ) && (
-                                <div className="w-[10px] h-[10px] bg-blue-600 rounded-full absolute top-0 right-[-5px]"></div>
+                                <div className="w-[10px] h-[10px] bg-lime-400 rounded-full absolute top-0 right-[-5px]"></div>
                             )}
                     </div>
                     <BiMessageAltDetail
@@ -36,7 +35,7 @@ function Feed() {
                 </div>
             </div>
 
-            <div className="flex w-full justify-start overflow-x-auto gap-[10px] items-center p-[20px]">
+            <div className="flex w-full justify-start overflow-x-auto gap-[10px] items-center p-[20px] border-b border-b-lime-400/50">
                 <StoryDp
                     userName={"Your Story"}
                     ProfileImage={userData.profileImage}
@@ -53,13 +52,13 @@ function Feed() {
                 ))}
             </div>
 
-            <div className="w-full min-h-[100vh] flex flex-col items-center gap-[20px] p-[10px] pt-[40px]  bg-lime-300/20 rounded-t-sm  relative pb-[120px]">
-                <Nav />
-
+            <div className="w-full min-h-[100vh] flex flex-col items-center gap-[20px] p-[5px] pt-[40px] bg-lime-300/20 rounded-t-sm relative pb-[120px]">
                 {postData &&
                     postData.map((post, index) => (
                         <Post post={post} key={index} />
                     ))}
+
+                <Nav />
             </div>
         </div>
     );

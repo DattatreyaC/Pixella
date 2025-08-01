@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.png";
-import { FaRegHeart } from "react-icons/fa6";
+import { IoNotificationsOutline } from "react-icons/io5";
 import dp from "../assets/dp.webp";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -26,17 +25,17 @@ function LeftHome() {
 
     return (
         <div
-            className={`w-[25%] hidden lg:block h-[100vh] bg-black border-r-2 border-gray-900  ${
+            className={`w-[25%] hidden lg:block h-[100vh] bg-black border-r-1 border-lime-400/50  ${
                 showNotification ? "overflow-hidden" : "overflow-auto"
             }`}
         >
             <div className="w-full h-[100px] flex items-center justify-between p-[20px]">
-                <img src={logo} alt="" className="w-[80px]" />
+                <h1 className="text-white font-splash text-5xl">Pixella</h1>
                 <div
                     className="relative z-[100]"
                     onClick={() => setShowNotification((prev) => !prev)}
                 >
-                    <FaRegHeart className="text-lime-400 w-[25px] h-[25px] hover:text-lime-600 transition-colors cursor-pointer" />
+                    <IoNotificationsOutline className="text-lime-400 w-[25px] h-[25px] hover:text-lime-600 transition-colors cursor-pointer" />
                     {notificationData?.length > 0 &&
                         notificationData.some(
                             (noti) => noti.isRead === false,
