@@ -44,31 +44,35 @@ function App() {
 
     //socket manager
     useEffect(() => {
-        if (userData) {
-            const socketIo = io(`${serverUrl}`, {
-                query: {
-                    userId: userData._id,
-                },
-            });
-            dispatch(setSocket(socketIo));
+        if (!userData?._id) return; // wait until userData is ready
 
-            socketIo.on("getOnlineUsers", (users) => {
-                dispatch(setOnlineUsers(users));
-                console.log(users);
-            });
+        const socketIo = io(serverUrl, {
+            query: { userId: userData._id },
+        });
 
-            return () => socketIo.close();
-        } else {
-            if (socket) {
-                socket.close();
-                dispatch(setSocket(null));
-            }
-        }
-    }, [userData]);
+        dispatch(setSocket(socketIo));
 
-    socket?.on("newNotification", (noti) => {
-        dispatch(setNotificationData([...notificationData, noti]));
-    });
+        socketIo.on("getOnlineUsers", (users) => {
+            dispatch(setOnlineUsers(users));
+        });
+
+        return () => {
+            socketIo.close();
+            dispatch(setSocket(null));
+        };
+    }, [userData?._id, dispatch]);
+
+    useEffect(() => {
+        if (!socket) return;
+
+        const handleNewNotification = (noti) => {
+            dispatch(setNotificationData((prev) => [...(prev || []), noti]));
+        };
+
+        socket.on("newNotification", handleNewNotification);
+
+        return () => socket.off("newNotification", handleNewNotification);
+    }, [socket, dispatch]);
 
     return (
         <Routes>
