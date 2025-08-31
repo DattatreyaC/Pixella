@@ -39,112 +39,80 @@ function SignIn() {
     };
 
     return (
-        <div className="w-full h-screen bg-gradient-to-b from-black to-[#172900] flex flex-col justify-center items-center">
-            <div className="w-[90%] lg:max-w-[60%]  h-[600px] bg-black/50 rounded-sm flex justify-center items-center overflow-hidden border-2 border-white/20">
-                <div className="w-full lg:w-[50%] h-full bg-black flex flex-col items-center justify-center p-[10px] gap-[20px]">
-                    <div className="flex gap-[10px] items-center text-[20px] font-semibold mt-[40px]">
-                        <span className="text-white">Sign In to </span>
-                        <h1 className="bg-gradient-to-r from-lime-400 to-lime-200 text-transparent bg-clip-text font-splash text-5xl">
-                            Pixella
-                        </h1>
-                    </div>
+        <div className="w-full min-h-screen bg-gradient-to-br from-green-950 to-black flex flex-col justify-center items-center p-4">
+            <div className="w-full max-w-md bg-black/20 backdrop-blur-lg rounded-2xl border border-white/10 shadow-xl flex flex-col justify-center items-center p-8 text-white">
+                {/* --- Header --- */}
+                <div className="flex gap-2 items-center text-xl font-semibold mb-6">
+                    <span>Sign In to </span>
+                    <h1 className="bg-gradient-to-r from-lime-400 to-lime-200 text-transparent bg-clip-text font-splash text-5xl">
+                        Pixella
+                    </h1>
+                </div>
 
-                    <div
-                        className="relative flex items-center justify-start w-[90%] h-[50px] rounded-2xl  border-2 border-black"
-                        onClick={() =>
-                            setInputClicked({ ...inputClicked, userName: true })
-                        }
-                    >
-                        {/* <label
-                            htmlFor="userName"
-                            className={`text-gray-700 absolute left-[20px] p-[5px] bg-white text-[15px] ${
-                                inputClicked.userName ? "top-[-15px]" : ""
-                            }`}
-                        >
-                            {" "}
-                            Enter Username
-                        </label> */}
-                        <input
-                            type="text"
-                            id="userName"
-                            placeholder="Username"
-                            className="w-[100%] h-[100%] rounded-sm px-[20px] outline-none border-0 bg-lime-400/80 placeholder:text-800"
-                            required
-                            onChange={(e) => setUserName(e.target.value)}
-                            value={userName}
-                        />
-                    </div>
+                <div className="w-full flex flex-col gap-5">
+                    <input
+                        type="text"
+                        id="userName"
+                        placeholder="Username"
+                        className="w-full h-12 bg-white/10 rounded-lg px-5 outline-none border border-transparent placeholder:text-gray-400 focus:ring-2 focus:ring-lime-400 transition-all duration-300"
+                        required
+                        onChange={(e) => setUserName(e.target.value)}
+                        value={userName}
+                    />
 
-                    <div
-                        className="relative flex items-center justify-start w-[90%] h-[50px] rounded-2xl  border-2 border-black"
-                        onClick={() =>
-                            setInputClicked({ ...inputClicked, password: true })
-                        }
-                    >
-                        {/* <label
-                            htmlFor="password"
-                            className={`text-gray-700 absolute left-[20px] p-[5px] bg-white text-[15px] ${
-                                inputClicked.password ? "top-[-15px]" : ""
-                            }`}
-                        >
-                            {" "}
-                            Enter password
-                        </label> */}
+                    <div className="relative w-full flex items-center">
                         <input
                             type={showPassword ? "text" : "password"}
                             id="password"
                             placeholder="Password"
-                            className="w-[100%] h-[100%] rounded-sm px-[20px] outline-none border-0 bg-lime-400/80"
+                            className="w-full h-12 bg-white/10 rounded-lg px-5 outline-none border border-transparent placeholder:text-gray-400 focus:ring-2 focus:ring-lime-400 transition-all duration-300"
                             required
                             onChange={(e) => setPassword(e.target.value)}
                             value={password}
                         />
-                        {!showPassword ? (
-                            <IoIosEye
-                                className="absolute cursor-pointer right-[20px] w-[25px] h-[25px]"
-                                onClick={() => setShowPassword(true)}
-                            />
-                        ) : (
-                            <IoIosEyeOff
-                                className="absolute cursor-pointer right-[20px] w-[25px] h-[25px]"
-                                onClick={() => setShowPassword(false)}
-                            />
-                        )}
+                        <div
+                            className="absolute right-4 cursor-pointer text-gray-400 hover:text-white transition-colors"
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
+                            {showPassword ? (
+                                <IoIosEyeOff size={24} />
+                            ) : (
+                                <IoIosEye size={24} />
+                            )}
+                        </div>
                     </div>
+
                     <div
-                        className="w-[90%] px-[20px] cursor-pointer text-lime-400 underline"
+                        className="w-fit text-right text-sm text-lime-400 hover:text-lime-300 underline cursor-pointer transition-colors"
                         onClick={() => navigate("/forgot-password")}
                     >
-                        Forgot Password
+                        Forgot Password?
                     </div>
-
-                    {err && <p className="text-red-500">{err}</p>}
-
-                    <button
-                        className="w-[70%] px-[20px] py-[10px] bg-lime-500 hover:bg-lime-600 transition-colors duration-300 text-black font-semibold h-[50px] cursor-pointer rounded-2xl mt-[30px]"
-                        onClick={handleSignIn}
-                        disabled={loading}
-                    >
-                        {loading ? (
-                            <ClipLoader size={30} color="white" />
-                        ) : (
-                            "Sign In"
-                        )}
-                    </button>
-                    <p
-                        className="cursor-pointer text-white"
-                        onClick={() => navigate("/signup")}
-                    >
-                        Dont have an account ?{" "}
-                        <span className="border-b-2 border-b-black pb-[3px] text-lime-400 underline">
-                            Sign Up
-                        </span>
-                    </p>
                 </div>
-                {/* <div className="md:w-[50%] h-full hidden lg:flex justify-center items-center bg-[#000000] flex-col gap-[10px] text-white text-[16px] font-semibold rounded-l-[30px] shadow-2xl shadow-black">
-                    <h1 className="text-white font-splash text-5xl">Pixella</h1>
-                    <p>Not Just A Platform , It's A VYBE</p>
-                </div> */}
+
+                {err && <p className="text-red-500 mt-4 text-center">{err}</p>}
+
+                <button
+                    className="w-full h-12 bg-lime-500 hover:bg-lime-600 disabled:bg-lime-800 text-black font-semibold rounded-lg mt-6 transition-all duration-300 flex justify-center items-center hover:scale-105 active:scale-100 shadow-lg shadow-lime-500/20"
+                    onClick={handleSignIn}
+                    disabled={loading}
+                >
+                    {loading ? (
+                        <ClipLoader size={24} color="black" />
+                    ) : (
+                        "Sign In"
+                    )}
+                </button>
+
+                <p
+                    className="cursor-pointer text-gray-300 mt-6 text-sm"
+                    onClick={() => navigate("/signup")}
+                >
+                    Don't have an account?{" "}
+                    <span className="font-semibold text-lime-400 hover:text-lime-300 underline transition-colors">
+                        Sign Up
+                    </span>
+                </p>
             </div>
         </div>
     );

@@ -25,7 +25,8 @@ import Search from "./pages/Search";
 import getAllNotifications from "./hooks/getAllNotifications";
 import Notifications from "./pages/Notifications";
 import { setNotificationData } from "./redux/userSlice";
-export const serverUrl = import.meta.env.VITE_SERVER_URL;
+// export const serverUrl = import.meta.env.VITE_SERVER_URL;
+export const serverUrl = import.meta.env.VITE_LOCALHOST_URL;
 
 function App() {
     getCurrentUser();

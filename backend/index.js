@@ -12,7 +12,7 @@ import messageRouter from "./routes/message.routes.js";
 import { app, server } from "./socket.js";
 dotenv.config();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 app.use(
     cors({
         origin: ["https://pixella-app.vercel.app", "http://localhost:5173"],
