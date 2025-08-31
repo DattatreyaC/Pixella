@@ -9,6 +9,7 @@ const uploadOnCloudinary = async (file) => {
         });
         const result = await cloudinary.uploader.upload(file, {
             resource_type: "auto",
+            folder: "pixella",
         });
         fs.unlinkSync(file);
         return result.secure_url;
